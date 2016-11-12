@@ -10,7 +10,7 @@ import com.star.littlefatmonkey.service.TestService;
 
 /**
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>
- * @date 2016-06-04 22:41:00
+ * @since  2016-06-04 22:41:00
  */
 @Controller
 @RequestMapping("/main")
