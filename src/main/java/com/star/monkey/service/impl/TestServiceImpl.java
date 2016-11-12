@@ -1,8 +1,8 @@
-package com.star.littlefatmonkey.service.impl;
+package com.star.monkey.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import com.star.littlefatmonkey.service.TestService;
+import com.star.monkey.service.TestService;
 
 /**
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>

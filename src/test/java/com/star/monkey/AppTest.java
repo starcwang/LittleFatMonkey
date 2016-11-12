@@ -1,4 +1,4 @@
-package com.star.littlefatmonkey;
+package com.star.monkey;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

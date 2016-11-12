@@ -1,4 +1,4 @@
-package com.star.littlefatmonkey.service;
+package com.star.monkey.service;
 
 /**
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>

@@ -1,4 +1,4 @@
-package com.star.littlefatmonkey.controller;
+package com.star.monkey.controller;
 
 import javax.annotation.Resource;
 
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.star.littlefatmonkey.service.TestService;
+import com.star.monkey.service.TestService;
 
 /**
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>
