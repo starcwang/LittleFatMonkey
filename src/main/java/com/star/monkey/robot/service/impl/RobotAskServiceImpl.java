@@ -23,7 +23,11 @@ public class RobotAskServiceImpl implements RobotAskService {
     public RobotAnswer ask(String question) {
         RobotAnswer response = new RobotAnswer();
         TuringRobotResponse turingRobotResponse = turingRobotClient.ask(question, StringUtils.EMPTY, StringUtils.EMPTY);
-        response.setAnswer(turingRobotResponse.getText());
+        if (StringUtils.isNotBlank(turingRobotResponse.getUrl())) {
+            response.setAnswer(turingRobotResponse.getText() + "\n" + turingRobotResponse.getUrl());
+        } else {
+            response.setAnswer(turingRobotResponse.getText());
+        }
         return response;
     }
 }
