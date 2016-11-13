@@ -46,7 +46,9 @@ public class RobotController {
      */
     @RequestMapping("/ask")
     @ResponseBody
-    public Response ask(String question) {
-        return Response.success().setData(robotAskService.ask(question));
+    public String ask(String question) {
+        return "<xml><ToUserName>wc760823254</ToUserName><FromUserName>小胖猴猴</FromUserName><CreateTime>1460541339</CreateTime><MsgType>text</MsgType><Content>hello world</Content></xml>";
+//        return wechatTokenService.token(signature, timestamp, nonce, echostr);
+//        return Response.success().setData(robotAskService.ask(question)).toString();
     }
 }
