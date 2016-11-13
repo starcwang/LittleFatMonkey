@@ -26,7 +26,7 @@ public class RobotController {
     /**
      * 图灵机器人对话接口
      */
-    @RequestMapping
+    @RequestMapping("/ask")
     @ResponseBody
     public Response ask(String question) {
         return Response.success().setData(robotAskService.ask(question));
