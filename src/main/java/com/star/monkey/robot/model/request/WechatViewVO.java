@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "xml")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class WechatRequest {
+public class WechatViewVO {
     @XmlElement(name = "ToUserName")
     private String toUserName;
     @XmlElement(name = "FromUserName")

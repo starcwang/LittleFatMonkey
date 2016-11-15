@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.star.monkey.robot.client.TuringRobotClient;
 import com.star.monkey.robot.client.dto.TuringRobotResponse;
-import com.star.monkey.robot.model.pojo.RobotAnswer;
+import com.star.monkey.robot.common.enums.WechatMsgType;
+import com.star.monkey.robot.model.request.WechatViewVO;
 import com.star.monkey.robot.service.RobotAskService;
 
 /**
@@ -20,13 +21,17 @@ public class RobotAskServiceImpl implements RobotAskService {
     private TuringRobotClient turingRobotClient;
 
     @Override
-    public RobotAnswer ask(String question) {
-        RobotAnswer response = new RobotAnswer();
-        TuringRobotResponse turingRobotResponse = turingRobotClient.ask(question, StringUtils.EMPTY, StringUtils.EMPTY);
+    public WechatViewVO ask(WechatViewVO wechatRequest) {
+        WechatViewVO response = new WechatViewVO();
+        TuringRobotResponse turingRobotResponse = turingRobotClient.ask(wechatRequest.getContent(), StringUtils.EMPTY, StringUtils.EMPTY);
+        response.setCreateTime(System.currentTimeMillis());
+        response.setMsgType(WechatMsgType.text.name());
+        response.setFromUserName(wechatRequest.getToUserName());
+        response.setToUserName(wechatRequest.getFromUserName());
         if (StringUtils.isNotBlank(turingRobotResponse.getUrl())) {
-            response.setAnswer(turingRobotResponse.getText() + "\n" + turingRobotResponse.getUrl());
+            response.setContent(turingRobotResponse.getText() + "\n" + turingRobotResponse.getUrl());
         } else {
-            response.setAnswer(turingRobotResponse.getText());
+            response.setContent(turingRobotResponse.getText());
         }
         return response;
     }
