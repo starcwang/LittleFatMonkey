@@ -23,7 +23,7 @@ public class RobotAskServiceImpl implements RobotAskService {
     @Override
     public WechatViewVO ask(WechatViewVO wechatRequest) {
         WechatViewVO response = new WechatViewVO();
-        TuringRobotResponse turingRobotResponse = turingRobotClient.ask(wechatRequest.getContent(), StringUtils.EMPTY, StringUtils.EMPTY);
+        TuringRobotResponse turingRobotResponse = turingRobotClient.ask(wechatRequest.getContent(), StringUtils.EMPTY, wechatRequest.getFromUserName());
         response.setCreateTime(System.currentTimeMillis());
         response.setMsgType(WechatMsgType.text.name());
         response.setFromUserName(wechatRequest.getToUserName());
