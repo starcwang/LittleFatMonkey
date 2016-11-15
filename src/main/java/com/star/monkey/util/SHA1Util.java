@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>
  * @since 2016-11-13 11:00:00
  */
-public class SHA1 {
+public class SHA1Util {
     public static String encrypt(String decript) {
         try {
             MessageDigest digest = MessageDigest

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
 import com.star.monkey.robot.service.WechatTokenService;
-import com.star.monkey.util.SHA1;
+import com.star.monkey.util.SHA1Util;
 
 /**
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>
@@ -24,7 +24,7 @@ public class WechatTokenServiceImpl implements WechatTokenService {
         for (String s : list) {
             str += s;
         }
-        String res = SHA1.encrypt(str);
+        String res = SHA1Util.encrypt(str);
         return res.equals(signature) ? echostr : "";
     }
 }
