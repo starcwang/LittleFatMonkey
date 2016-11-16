@@ -1,9 +1,14 @@
 package com.star.monkey.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
@@ -27,12 +32,19 @@ public class HttpClientUtil {
     private static final String DEFAULT_CHARSET = "UTF-8";
 
     public static String get(String url, int connTimeOut) {
-        return get(url, connTimeOut, READ_TIMEOUT);
+        return get(url, null, connTimeOut, READ_TIMEOUT);
     }
 
-    public static String get(String url, int connTimeOut, int soTimeout) {
-        String result = null;
+    public static String get(String url) {
+        return get(url, null, CONN_TIMEOUT, READ_TIMEOUT);
+    }
 
+    public static String get(String url, Map<String, String> params, int connTimeOut, int soTimeout) {
+        String result = null;
+        if (params != null && params.size() > 0) {
+            String param = genGetParam(params);
+            url = StringUtils.contains(url, "?") ? url + "&" + param : url + "?" + param;
+        }
         HttpGet get = new HttpGet(url);
         get.setConfig(RequestConfig.custom()
                 .setConnectTimeout(connTimeOut)
@@ -145,5 +157,16 @@ public class HttpClientUtil {
         }
 
         return postEncodedForm(url, pairs, connTimeOut, soTimeout);
+    }
+
+    private static String genGetParam(Map<String, String> params) {
+        List<String> paramTmp = new ArrayList<String>();
+        for (Entry<String, String> entry : params.entrySet()) {
+            try {
+                paramTmp.add(URLEncoder.encode(entry.getKey(), DEFAULT_CHARSET) + "=" + URLEncoder.encode(entry.getKey(), DEFAULT_CHARSET));
+            } catch (UnsupportedEncodingException ignored) {
+            }
+        }
+        return StringUtils.join(paramTmp, "&");
     }
 }

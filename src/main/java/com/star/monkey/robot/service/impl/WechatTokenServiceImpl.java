@@ -16,7 +16,7 @@ import com.star.monkey.util.SHA1Util;
 @Service
 public class WechatTokenServiceImpl implements WechatTokenService {
     @Override
-    public String token(String signature, String timestamp, String nonce, String echostr) {
+    public String authToken(String signature, String timestamp, String nonce, String echostr) {
         String token = "lalala";
         List<String> list = Lists.newArrayList(token, timestamp, nonce);
         Collections.sort(list);

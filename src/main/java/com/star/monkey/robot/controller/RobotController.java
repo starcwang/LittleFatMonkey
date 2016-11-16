@@ -37,7 +37,7 @@ public class RobotController {
     @RequestMapping("/token")
     @ResponseBody
     public String token(String signature, String timestamp, String nonce, String echostr) {
-        return wechatTokenService.token(signature, timestamp, nonce, echostr);
+        return wechatTokenService.authToken(signature, timestamp, nonce, echostr);
     }
 
     /**

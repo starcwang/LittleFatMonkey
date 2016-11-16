@@ -5,5 +5,5 @@ package com.star.monkey.robot.service;
  * @since 2016-11-13 10:23:00
  */
 public interface WechatTokenService {
-    String token(String signature, String timestamp, String nonce, String echostr);
+    String authToken(String signature, String timestamp, String nonce, String echostr);
 }
