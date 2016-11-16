@@ -98,7 +98,7 @@ public class WechatRequest extends WechatBaseVO {
     private String description;
     /**
      * 消息链接
-     *;
+     *
      * @see com.star.monkey.robot.common.enums.WechatMsgType#image
      * @see com.star.monkey.robot.common.enums.WechatMsgType#link
      */
