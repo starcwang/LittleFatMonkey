@@ -1,6 +1,8 @@
 package com.star.monkey.common;
 
 /**
+ * 客户端错误码
+ *
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>
  * @since 2016-11-13 00:14:00
  */

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.star.monkey.robot.client.TuringRobotClient;
 import com.star.monkey.robot.client.dto.TuringRobotResponse;
 import com.star.monkey.robot.common.enums.WechatMsgType;
-import com.star.monkey.robot.model.request.WechatViewVO;
+import com.star.monkey.robot.model.request.WechatRequest;
 import com.star.monkey.robot.service.RobotAskService;
 
 /**
@@ -21,8 +21,8 @@ public class RobotAskServiceImpl implements RobotAskService {
     private TuringRobotClient turingRobotClient;
 
     @Override
-    public WechatViewVO ask(WechatViewVO wechatRequest) {
-        WechatViewVO response = new WechatViewVO();
+    public WechatRequest ask(WechatRequest wechatRequest) {
+        WechatRequest response = new WechatRequest();
         TuringRobotResponse turingRobotResponse = turingRobotClient.ask(wechatRequest.getContent(), StringUtils.EMPTY, wechatRequest.getFromUserName());
         response.setCreateTime(System.currentTimeMillis());
         response.setMsgType(WechatMsgType.text.name());

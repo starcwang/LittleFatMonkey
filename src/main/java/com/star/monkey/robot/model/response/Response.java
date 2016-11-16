@@ -7,7 +7,7 @@ import com.star.monkey.util.JsonUtil;
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>
  * @since 2016-11-13 00:10:00
  */
-public class Response<T>  {
+public class Response<T> {
     private int code;
     private String message;
     private T data;
@@ -46,7 +46,7 @@ public class Response<T>  {
         return this;
     }
 
-    public static <D>Response<D> success() {
+    public static <D> Response<D> success() {
         return new Response<D>(ErrorCode.OK);
     }
 

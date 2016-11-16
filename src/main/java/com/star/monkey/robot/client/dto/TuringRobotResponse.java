@@ -6,13 +6,27 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 
 /**
+ * 图灵机器人 接口请求参数描述类
+ *
  * @author <a href="mailto:wangchao.star@gmail.com">wangchao</a>
  * @since 2016-11-12 23:43:00
  */
 public class TuringRobotResponse {
+    /**
+     * 状态码
+     */
     private Integer code;
+    /**
+     * 回复内容
+     */
     private String text;
+    /**
+     * 链接地址
+     */
     private String url;
+    /**
+     * 回复数据内容
+     */
     private List<Detail> list;
 
     public Integer getCode() {
@@ -47,8 +61,17 @@ public class TuringRobotResponse {
         this.list = list;
     }
 
+    /**
+     * 新闻描述类
+     */
     public static class News extends Detail {
+        /**
+         * 新闻标题
+         */
         private String article;
+        /**
+         * 新闻来源
+         */
         private String source;
 
         public String getArticle() {
@@ -68,8 +91,17 @@ public class TuringRobotResponse {
         }
     }
 
+    /**
+     * 菜谱描述类
+     */
     public static class Cookbook extends Detail {
+        /**
+         * 菜名
+         */
         private String name;
+        /**
+         * 介绍
+         */
         private String info;
 
 
@@ -90,9 +122,18 @@ public class TuringRobotResponse {
         }
     }
 
+    /**
+     * 返回结果描述抽象类
+     */
     public static abstract class Detail {
+        /**
+         * 详细地址url
+         */
         @JsonProperty("detailurl")
         private String detailUrl;
+        /**
+         * 图标
+         */
         private String icon;
 
         public String getDetailUrl() {

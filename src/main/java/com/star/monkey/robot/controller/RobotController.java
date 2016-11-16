@@ -2,14 +2,12 @@ package com.star.monkey.robot.controller;
 
 import javax.annotation.Resource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.star.monkey.robot.model.request.WechatViewVO;
+import com.star.monkey.robot.model.request.WechatRequest;
 import com.star.monkey.robot.service.RobotAskService;
 import com.star.monkey.robot.service.WechatTokenService;
 
@@ -23,7 +21,6 @@ import com.star.monkey.robot.service.WechatTokenService;
 @Controller
 @RequestMapping("/robot")
 public class RobotController {
-    private static final Logger logger = LoggerFactory.getLogger(RobotController.class);
 
     @Resource
     private RobotAskService robotAskService;
@@ -33,9 +30,11 @@ public class RobotController {
 
     /**
      * 微信token验证接口
+     * 用于微信接口验证
      */
     @RequestMapping("/token")
     @ResponseBody
+    @Deprecated
     public String token(String signature, String timestamp, String nonce, String echostr) {
         return wechatTokenService.authToken(signature, timestamp, nonce, echostr);
     }
@@ -45,7 +44,7 @@ public class RobotController {
      */
     @RequestMapping("/ask")
     @ResponseBody
-    public WechatViewVO ask(@RequestBody WechatViewVO wechatRequest, String signature, String timestamp, String nonce, String echostr) {
+    public WechatRequest ask(@RequestBody WechatRequest wechatRequest, String signature, String timestamp, String nonce, String echostr) {
         return robotAskService.ask(wechatRequest);
 //        return "success";
 //        return Response.success().setData(robotAskService.ask(question)).toString();
