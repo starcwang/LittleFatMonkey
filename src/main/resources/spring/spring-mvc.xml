@@ -40,7 +40,7 @@
     <!--</beans:bean>-->
 
     <!-- 采用AOP记录异常 -->
-    <beans:bean id="httpLogAop" class="com.star.monkey.web.aop.ControllerExceptionAop"/>
+    <beans:bean id="httpLogAop" class="com.star.monkey.wechat.web.aop.ControllerExceptionAop"/>
     <aop:config>
         <aop:pointcut id="controllerHttpLogCut" expression="within(@org.springframework.stereotype.Controller *)"/>
         <aop:advisor pointcut-ref="controllerHttpLogCut" advice-ref="httpLogAop"/>

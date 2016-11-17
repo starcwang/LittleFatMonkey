@@ -27,7 +27,7 @@
 
     <filter>
         <filter-name>logFilter</filter-name>
-        <filter-class>com.star.monkey.web.filter.LogFilter</filter-class>
+        <filter-class>com.star.monkey.wechat.web.filter.LogFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>logFilter</filter-name>
