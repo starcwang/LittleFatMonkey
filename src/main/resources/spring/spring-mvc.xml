@@ -8,8 +8,8 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <context:component-scan base-package="com.star.monkey.controller,
-                                            com.star.monkey.robot.controller"/>
+    <context:component-scan base-package="com.star.monkey.wechat.controller,
+                                            com.star.monkey.wechat.robot.controller"/>
 
     <!--<beans:bean-->
             <!--class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
